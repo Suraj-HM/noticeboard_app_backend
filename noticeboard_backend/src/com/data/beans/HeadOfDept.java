@@ -16,6 +16,11 @@ public class HeadOfDept extends UserEntity implements Serializable {
 	
 	public HeadOfDept() {
 		super("head_of_dept");
+		this.hodId = "";
+		this.hodName = "";
+		this.hodPwd = "";
+		this.hodEmail = "";
+		this.hodDeptId = "";
 	}
 	
 	public HeadOfDept(String hodId, String hodName, String hodPwd, String hodEmail, String hodDeptId) {
@@ -87,6 +92,12 @@ public class HeadOfDept extends UserEntity implements Serializable {
 	public boolean insertEntity() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	
+	@Override
+	public String toString() {
+		
+		return String.format("HOD : name : %s, email : %s, dept_id:%s", this.hodName, this.hodEmail, this.hodDeptId);
 	}
 
 }

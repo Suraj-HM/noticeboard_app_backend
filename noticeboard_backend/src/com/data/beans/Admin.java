@@ -14,6 +14,9 @@ public class Admin extends UserEntity implements Serializable {
 	
 	public Admin() {
 		super("admin_users");
+		this.adminId = "";
+		this.adminName = "";
+		this.adminPwd = "";
 	}
 	
 	public Admin(String adminId, String adminName, String adminPwd) {
