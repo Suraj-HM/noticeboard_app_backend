@@ -1,1 +1,1 @@
-# noticeboard_app_backend
+# SIMPLE ANDROID PROJECT
