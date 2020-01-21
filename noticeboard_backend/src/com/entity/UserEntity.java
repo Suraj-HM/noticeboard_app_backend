@@ -4,7 +4,7 @@ import com.dao.DAO;
 import com.database.DatabaseConnction;
 
 public abstract class UserEntity {
-	private DAO dao;
+	protected DAO dao;
 	protected String table_name;
 	
 	public UserEntity() {

@@ -1,6 +1,7 @@
 package com.data.beans;
 
 import java.io.Serializable;
+import java.sql.ResultSet;
 
 import com.entity.UserEntity;
 
@@ -78,7 +79,13 @@ public class HeadOfDept extends UserEntity implements Serializable {
 
 	@Override
 	public boolean isPresent() {
-		// TODO Auto-generated method stub
+		String sql = String.format(
+				"SELECT * FROM %s WHERE hod_email = '%s'",
+				table_name, hodEmail);
+		ResultSet rs = dao.getData(sql);
+		if(rs != null) {
+			return true;
+		}
 		return false;
 	}
 
@@ -90,14 +97,19 @@ public class HeadOfDept extends UserEntity implements Serializable {
 
 	@Override
 	public boolean insertEntity() {
-		// TODO Auto-generated method stub
+		if(!isPresent()) {
+			String sql = String.format(
+					"INSERT INTO %s(hod_name, hod_pwd, hod_email, hod_dept_id) VALUES ('%s','%s','%s','%s')",
+					table_name, hodName, hodPwd, hodEmail, hodDeptId);
+			return dao.putData(sql);
+		}
 		return false;
 	}
-	
+
 	@Override
 	public String toString() {
-		
-		return String.format("HOD : name : %s, email : %s, dept_id:%s", this.hodName, this.hodEmail, this.hodDeptId);
+		return String.format("HOD { name : %s, email : %s, dept_id : %s , password : %s }", 
+				this.hodName, this.hodEmail, this.hodDeptId, this.hodPwd);
 	}
 
 }

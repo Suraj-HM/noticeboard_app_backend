@@ -24,7 +24,7 @@ public class DatabaseConnction implements DAO {
 		this.password = "root";
 		
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			url = String.format("jdbc:mysql://localhost:3306/%s", this.schema);
 			this.conn = DriverManager.getConnection(this.url, this.user, this.password);
 			this.smt = conn.createStatement();
