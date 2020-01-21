@@ -56,7 +56,7 @@ public class Admin extends UserEntity implements Serializable {
 
 	@Override
 	public boolean isPresent() {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 
