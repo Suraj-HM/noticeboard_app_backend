@@ -5,6 +5,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" href="./bootstrap-4.4.1-dist/css/bootstrap.min.css"/>
+<script src="./bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
 </head>
 <body>
 

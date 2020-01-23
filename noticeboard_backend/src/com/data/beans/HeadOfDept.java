@@ -36,43 +36,33 @@ public class HeadOfDept extends UserEntity implements Serializable {
 	public String getHodId() {
 		return hodId;
 	}
-
 	public void setHodId(String hodId) {
 		this.hodId = hodId;
 	}
-
 	public String getHodName() {
 		return hodName;
 	}
-
 	public void setHodName(String hodName) {
 		this.hodName = hodName;
 	}
-
 	public String getHodPwd() {
 		return hodPwd;
 	}
-
 	public void setHodPwd(String hodPwd) {
 		this.hodPwd = hodPwd;
 	}
-
 	public String getHodEmail() {
 		return hodEmail;
 	}
-
 	public void setHodEmail(String hodEmail) {
 		this.hodEmail = hodEmail;
 	}
-
 	public String getHodDeptId() {
 		return hodDeptId;
 	}
-
 	public void setHodDeptId(String hodDeptId) {
 		this.hodDeptId = hodDeptId;
 	}
-
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
@@ -91,7 +81,13 @@ public class HeadOfDept extends UserEntity implements Serializable {
 
 	@Override
 	public boolean checkUser() {
-		// TODO Auto-generated method stub
+		String sql = String.format(
+				"SELECT * FROM %s WHERE hod_email = '%s' AND hod_pwd = '%s'",
+				table_name, hodEmail, hodPwd);
+		ResultSet rs = dao.getData(sql);
+		if(rs != null) {
+			return true;
+		}
 		return false;
 	}
 
@@ -108,8 +104,8 @@ public class HeadOfDept extends UserEntity implements Serializable {
 
 	@Override
 	public String toString() {
-		return String.format("HOD { name : %s, email : %s, dept_id : %s , password : %s }", 
-				this.hodName, this.hodEmail, this.hodDeptId, this.hodPwd);
+		return String.format("HOD : { id: %s, name : %s, email : %s, dept_id : %s , password : %s}", 
+				this.hodId, this.hodName, this.hodEmail, this.hodDeptId, this.hodPwd);
 	}
 
 }

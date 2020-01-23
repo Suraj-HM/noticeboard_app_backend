@@ -15,12 +15,10 @@
 	
 	<%!
 	String adminName = null;
-	String adminId = null;
 	%>
 
 	<%
-	// adminName = (String)session.getAttribute("adminName");
-	adminName = "admin";
+	adminName = (String)session.getAttribute("adminName");
 	if(adminName == null) {
 		response.sendRedirect("AdminLoginPage.jsp");
 	} else {
@@ -45,19 +43,24 @@
 					<option value="none" selected disabled hidden="true"> SELECT DEPT </option>
 					<%
 					DAO dao = new DatabaseConnction();
-					ResultSet rs = dao.getData(
-						"SELECT * FROM departments WHERE dept_name != 'ALL' AND dept_id NOT IN " + 
-						"(SELECT hod_dept_id FROM head_of_dept)"
-						);
-					 do {
-						%>
-							<option value="<%= rs.getString("dept_id") %>"> <%=rs.getString("dept_name") %></option>
-						<%
-					} while(rs.next());
+					try {
+						ResultSet rs = dao.getData(
+							"SELECT * FROM departments WHERE dept_name != 'ALL' AND dept_id NOT IN " + 
+							"(SELECT hod_dept_id FROM head_of_dept)"
+							);
+						 do {
+							%>
+								<option value="<%= rs.getString("dept_id") %>"> <%=rs.getString("dept_name") %></option>
+							<%
+						} while(rs.next());
+					} catch(Exception e) {
+						
+					}
+					dao.closeConnection();
 					%>
 				</select>
 				<br/>
-				<input id="" type="submit" name="add_hod" value="add_hod"/>
+				<input id="addhod" type="submit" name="add_hod" value="add_hod"/>
 			</form>
 			<jsp:setProperty property="*" name="hod"/>
 			<%
