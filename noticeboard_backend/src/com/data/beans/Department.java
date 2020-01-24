@@ -2,9 +2,9 @@ package com.data.beans;
 
 import java.io.Serializable;
 
-import com.entity.UserEntity;
+import com.entity.Entity;
 
-public class Department extends UserEntity implements Serializable {
+public class Department extends Entity implements Serializable {
 
 	private static final long serialVersionUID = -6901910476115327284L;
 
@@ -15,13 +15,13 @@ public class Department extends UserEntity implements Serializable {
 	}
 
 	@Override
-	public boolean checkUser() {
+	public boolean insertEntity() {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean insertEntity() {
+	public boolean setAllFields() {
 		// TODO Auto-generated method stub
 		return false;
 	}

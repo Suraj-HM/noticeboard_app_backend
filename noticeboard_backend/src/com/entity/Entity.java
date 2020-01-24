@@ -18,10 +18,15 @@ public abstract class Entity {
 	
 	public abstract boolean isPresent();
 	public abstract boolean insertEntity();
+	public abstract boolean setAllFields();
 	
 	@Override
 	protected void finalize() throws Throwable {
 		dao.closeConnection();
 		super.finalize();
+	}
+	
+	public interface UserEntity {
+		public abstract boolean checkUser();
 	}
 }

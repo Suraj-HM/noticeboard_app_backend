@@ -3,9 +3,9 @@ package com.data.beans;
 import java.io.Serializable;
 import java.sql.ResultSet;
 
-import com.entity.UserEntity;
+import com.entity.Entity;
 
-public class HeadOfDept extends UserEntity implements Serializable {
+public class HeadOfDept extends Entity implements Entity.UserEntity , Serializable {
 
 	private static final long serialVersionUID = -936553351779071760L;
 	
@@ -33,39 +33,17 @@ public class HeadOfDept extends UserEntity implements Serializable {
 		this.hodDeptId = hodDeptId;
 	}
 	
-	public String getHodId() {
-		return hodId;
-	}
-	public void setHodId(String hodId) {
-		this.hodId = hodId;
-	}
-	public String getHodName() {
-		return hodName;
-	}
-	public void setHodName(String hodName) {
-		this.hodName = hodName;
-	}
-	public String getHodPwd() {
-		return hodPwd;
-	}
-	public void setHodPwd(String hodPwd) {
-		this.hodPwd = hodPwd;
-	}
-	public String getHodEmail() {
-		return hodEmail;
-	}
-	public void setHodEmail(String hodEmail) {
-		this.hodEmail = hodEmail;
-	}
-	public String getHodDeptId() {
-		return hodDeptId;
-	}
-	public void setHodDeptId(String hodDeptId) {
-		this.hodDeptId = hodDeptId;
-	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+	public String getHodId() { return hodId; }
+	public void setHodId(String hodId) { this.hodId = hodId; }
+	public String getHodName() { return hodName; }
+	public void setHodName(String hodName) { this.hodName = hodName; }
+	public String getHodPwd() { return hodPwd; }
+	public void setHodPwd(String hodPwd) { this.hodPwd = hodPwd; }
+	public String getHodEmail() { return hodEmail; }
+	public void setHodEmail(String hodEmail) { this.hodEmail = hodEmail; }
+	public String getHodDeptId() { return hodDeptId; }
+	public void setHodDeptId(String hodDeptId) { this.hodDeptId = hodDeptId; }
+	public static long getSerialversionuid() { return serialVersionUID; }
 
 	@Override
 	public boolean isPresent() {
@@ -106,6 +84,12 @@ public class HeadOfDept extends UserEntity implements Serializable {
 	public String toString() {
 		return String.format("HOD : { id: %s, name : %s, email : %s, dept_id : %s , password : %s}", 
 				this.hodId, this.hodName, this.hodEmail, this.hodDeptId, this.hodPwd);
+	}
+
+	@Override
+	public boolean setAllFields() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

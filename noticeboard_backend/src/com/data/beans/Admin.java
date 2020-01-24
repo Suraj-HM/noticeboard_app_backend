@@ -3,9 +3,9 @@ package com.data.beans;
 import java.io.Serializable;
 import java.sql.ResultSet;
 
-import com.entity.UserEntity;
+import com.entity.Entity;
 
-public class Admin extends UserEntity implements Serializable {
+public class Admin extends Entity implements Entity.UserEntity, Serializable {
 
 	private static final long serialVersionUID = -2919909977147818820L;
 	
@@ -26,28 +26,14 @@ public class Admin extends UserEntity implements Serializable {
 		this.adminName = adminName;
 		this.adminPwd = adminPwd;
 	}
-
-	public String getAdminId() {
-		return adminId;
-	}
-	public void setAdminId(String adminId) {
-		this.adminId = adminId;
-	}
-	public String getAdminName() {
-		return adminName;
-	}
-	public void setAdminName(String adminName) {
-		this.adminName = adminName;
-	}
-	public String getAdminPwd() {
-		return adminPwd;
-	}
-	public void setAdminPwd(String adminPwd) {
-		this.adminPwd = adminPwd;
-	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+	
+	public String getAdminId() { return adminId; }
+	public void setAdminId(String adminId) { this.adminId = adminId; }
+	public String getAdminName() { return adminName; }
+	public void setAdminName(String adminName) { this.adminName = adminName; }
+	public String getAdminPwd() { return adminPwd; }
+	public void setAdminPwd(String adminPwd) { this.adminPwd = adminPwd; }
+	public static long getSerialversionuid() { return serialVersionUID; }
 
 	@Override
 	public boolean isPresent() {
@@ -88,6 +74,12 @@ public class Admin extends UserEntity implements Serializable {
 	public String toString() {
 		return String.format("Admin : { id : %s, name : %s, password : %s} ",
 				this.adminId, this.adminName, this.adminPwd);
+	}
+
+	@Override
+	public boolean setAllFields() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
