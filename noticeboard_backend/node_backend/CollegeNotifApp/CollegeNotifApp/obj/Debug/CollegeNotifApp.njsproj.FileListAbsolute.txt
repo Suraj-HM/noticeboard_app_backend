@@ -1,0 +1,3 @@
+C:\Users\hmsur\source\repos\CollegeNotifApp\CollegeNotifApp\obj\Debug\CollegeNotifApp.njsproj.CoreCompileInputs.cache
+C:\Users\hmsur\source\repos\CollegeNotifApp\CollegeNotifApp\bin\Microsoft.NodejsTools.WebRole.dll
+C:\Users\hmsur\source\repos\CollegeNotifApp\CollegeNotifApp\obj\Debug\CollegeNotifApp.njsprojAssemblyReference.cache
