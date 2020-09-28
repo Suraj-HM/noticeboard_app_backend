@@ -26,17 +26,16 @@
 			<input id="notice_message" type="text" name="noticeMessage" value='<jsp:getProperty name="notice" property = "noticeMessage"/>' required="required"/>
 			<br/>
 			<label> Notice Department : </label> <br/>
-				<label for="noticeDeptId">ISE : </label>
-				<input type="radio" name="noticeDeptId" value="2" /> <br/>
-				<label for="noticeDeptId">ALL : </label>
-				<input type="radio" name="noticeDeptId" value="0" /> <br/>
-			<input id="addNotice" type="submit" name="add_hod" value="add_hod"/>
+			<input type="radio" name="noticeDeptId" value="2" /> <br/>
+			<label for="noticeDeptId">ALL : </label>
+			<input type="radio" name="noticeDeptId" value="0" /> <br/>
+			<input id="addNotice" type="submit" name="add_notice" value="add_notice"/>
 		</form>
 		<jsp:setProperty property="*" name="notice"/>
 	<%
-		if(request.getAttribute("add_hod") != null) {
+		if(request.getAttribute("add_notice") != null) {
 			if(notice.insertEntity()) {
-				request.removeAttribute("add_hod");
+				request.removeAttribute("add_notice");
 			} else {
 				%>
 				<script type="text/javascript">
